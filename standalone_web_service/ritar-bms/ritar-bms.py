@@ -263,7 +263,7 @@ tree = ET.ElementTree(root)
 with open('/ritar-bms/web_ui/api/ritar-bat-1.xml', 'wb') as file:
     tree.write(file, encoding="utf-8", xml_declaration=False)
 
-time.sleep (1)
+time.sleep (2)
 
 # data array to save in API file
 ritar_bms2 = {
