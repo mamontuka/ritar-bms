@@ -1,5 +1,7 @@
 # ritar-bms
-Ritar BAT-5KWH-51.2V BMS  <br />
+<b> Ritar BAT-5KWH-51.2V </b> <br />
+<b>LiFePo4 Battery </b></br>
+
 Battery management software for Ritar (tm) BAT-5KWH-51.2V (10,15KWH models not tested)  <br />
 
 SHORT INFORMATION </br>
