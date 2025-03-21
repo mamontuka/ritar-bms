@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # by Oleh Mamont (C) 2025
-# 
+#
 # Ritar BAT-5KWH-51.2V (10kWh model may work too)
 #
 # free for use and modifications
@@ -80,6 +80,9 @@ bat_2_cells_voltage = s.recv(BUFFER_SIZE)
 
 # close stream to rs485 device
 s.close()
+
+cell_min_limit=2450
+cell_max_limit=4750
 
 ###################################
 ########## battery 1 SOC ##########
@@ -225,80 +228,93 @@ bat_2_cell_16_dec = int(bat_2_cell_16_hex, 16)
 ######## API output ###############
 ###################################
 
+if cell_min_limit <= bat_1_cell_1_dec and bat_1_cell_2_dec <= cell_max_limit:
 
 # data array to save in API file
-ritar_bms = {
+     ritar_bms1 = {
 # battery 1 soc
-    'b1volt': bat_1_voltage_dec,
-    'b1soc': bat_1_charged_dec,
-    'b1cycl': bat_1__cycle__dec,
+     'b1volt': bat_1_voltage_dec,
+     'b1soc': bat_1_charged_dec,
+     'b1cycl': bat_1__cycle__dec,
 # battery 1 cells
-    'b1c1': bat_1_cell_1_dec,
-    'b1c2': bat_1_cell_2_dec,
-    'b1c3': bat_1_cell_3_dec,
-    'b1c4': bat_1_cell_4_dec,
-    'b1c5': bat_1_cell_5_dec,
-    'b1c6': bat_1_cell_6_dec,
-    'b1c7': bat_1_cell_7_dec,
-    'b1c8': bat_1_cell_8_dec,
-    'b1c9': bat_1_cell_9_dec,
-    'b1c10': bat_1_cell_10_dec,
-    'b1c11': bat_1_cell_11_dec,
-    'b1c12': bat_1_cell_12_dec,
-    'b1c13': bat_1_cell_13_dec,
-    'b1c14': bat_1_cell_14_dec,
-    'b1c15': bat_1_cell_15_dec,
-    'b1c16': bat_1_cell_16_dec
-}
+     'b1c1': bat_1_cell_1_dec,
+     'b1c2': bat_1_cell_2_dec,
+     'b1c3': bat_1_cell_3_dec,
+     'b1c4': bat_1_cell_4_dec,
+     'b1c5': bat_1_cell_5_dec,
+     'b1c6': bat_1_cell_6_dec,
+     'b1c7': bat_1_cell_7_dec,
+     'b1c8': bat_1_cell_8_dec,
+     'b1c9': bat_1_cell_9_dec,
+     'b1c10': bat_1_cell_10_dec,
+     'b1c11': bat_1_cell_11_dec,
+     'b1c12': bat_1_cell_12_dec,
+     'b1c13': bat_1_cell_13_dec,
+     'b1c14': bat_1_cell_14_dec,
+     'b1c15': bat_1_cell_15_dec,
+     'b1c16': bat_1_cell_16_dec
+     }
 
 # Create the root element
-root = ET.Element('response')
+     root = ET.Element('response')
 # Add data to the XML structure
-for key, value in ritar_bms.items():
-    child = ET.SubElement(root, key)
-    child.text = str(value)
+     for key, value in ritar_bms1.items():
+      child = ET.SubElement(root, key)
+      child.text = str(value)
 # Create a tree from the root element
-tree = ET.ElementTree(root)
+      tree = ET.ElementTree(root)
 # Write the tree to an XML file
-with open('/ritar-bms/web_ui/api/ritar-bat-1.xml', 'wb') as file:
-    tree.write(file, encoding="utf-8", xml_declaration=False)
+      with open('/ritar-bms/web_ui/api/ritar-bat-1.xml', 'wb') as file:
+       tree.write(file, encoding="utf-8", xml_declaration=False)
+
+else:
+
+    time.sleep(10)
+
 
 time.sleep (1)
 
+
+if cell_min_limit <= bat_2_cell_1_dec and bat_2_cell_2_dec <= cell_max_limit:
+
 # data array to save in API file
-ritar_bms2 = {
+     ritar_bms2 = {
 # battery 2 soc
-    'b2volt': bat_2_voltage_dec,
-    'b2soc': bat_2_charged_dec,
-    'b2cycl': bat_2__cycle__dec,
+     'b2volt': bat_2_voltage_dec,
+     'b2soc': bat_2_charged_dec,
+     'b2cycl': bat_2__cycle__dec,
 # battery 2 cells
-    'b2c1': bat_2_cell_1_dec,
-    'b2c2': bat_2_cell_2_dec,
-    'b2c3': bat_2_cell_3_dec,
-    'b2c4': bat_2_cell_4_dec,
-    'b2c5': bat_2_cell_5_dec,
-    'b2c6': bat_2_cell_6_dec,
-    'b2c7': bat_2_cell_7_dec,
-    'b2c8': bat_2_cell_8_dec,
-    'b2c9': bat_2_cell_9_dec,
-    'b2c10': bat_2_cell_10_dec,
-    'b2c11': bat_2_cell_11_dec,
-    'b2c12': bat_2_cell_12_dec,
-    'b2c13': bat_2_cell_13_dec,
-    'b2c14': bat_2_cell_14_dec,
-    'b2c15': bat_2_cell_15_dec,
-    'b2c16': bat_2_cell_16_dec
-}
+     'b2c1': bat_2_cell_1_dec,
+     'b2c2': bat_2_cell_2_dec,
+     'b2c3': bat_2_cell_3_dec,
+     'b2c4': bat_2_cell_4_dec,
+     'b2c5': bat_2_cell_5_dec,
+     'b2c6': bat_2_cell_6_dec,
+     'b2c7': bat_2_cell_7_dec,
+     'b2c8': bat_2_cell_8_dec,
+     'b2c9': bat_2_cell_9_dec,
+     'b2c10': bat_2_cell_10_dec,
+     'b2c11': bat_2_cell_11_dec,
+     'b2c12': bat_2_cell_12_dec,
+     'b2c13': bat_2_cell_13_dec,
+     'b2c14': bat_2_cell_14_dec,
+     'b2c15': bat_2_cell_15_dec,
+     'b2c16': bat_2_cell_16_dec
+     }
 
 # Create the root element
-root = ET.Element('response')
+     root = ET.Element('response')
 # Add data to the XML structure
-for key, value in ritar_bms2.items():
-    child = ET.SubElement(root, key)
-    child.text = str(value)
+     for key, value in ritar_bms2.items():
+      child = ET.SubElement(root, key)
+      child.text = str(value)
 # Create a tree from the root element
-tree = ET.ElementTree(root)
+      tree = ET.ElementTree(root)
 # Write the tree to an XML file
-with open('/ritar-bms/web_ui/api/ritar-bat-2.xml', 'wb') as file:
-    tree.write(file, encoding="utf-8", xml_declaration=False)
+      with open('/ritar-bms/web_ui/api/ritar-bat-2.xml', 'wb') as file:
+       tree.write(file, encoding="utf-8", xml_declaration=False)
+
+else:
+
+    time.sleep(10)
 
