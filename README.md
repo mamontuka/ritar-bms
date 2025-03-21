@@ -6,6 +6,4 @@ SHORT INFORMATION </br>
 
 For integration at now to homeassistant, come and read here : [standalone_web_service
 ](https://github.com/mamontuka/ritar-bms/tree/main/standalone_web_service) </br>
-Here : </br>
-
-and here : </br>
+and here : https://github.com/mamontuka/ritar-bms/tree/main/standalone_web_service/ritar-bms/web_ui/examples </br>
