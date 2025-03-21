@@ -70,7 +70,7 @@ s.send(bat_2_get_block_voltage)
 # getting ascii string with cells voltages from battery 1
 bat_2_block_voltage = s.recv(BUFFER_SIZE)
 
-time.sleep (1)
+time.sleep (2)
 
 # sending query hack to battery #2
 s.send(bat_2_get_cells_voltage)
@@ -263,7 +263,7 @@ tree = ET.ElementTree(root)
 with open('/ritar-bms/web_ui/api/ritar-bat-1.xml', 'wb') as file:
     tree.write(file, encoding="utf-8", xml_declaration=False)
 
-time.sleep (2)
+time.sleep (1)
 
 # data array to save in API file
 ritar_bms2 = {
