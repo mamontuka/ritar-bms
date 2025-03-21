@@ -1,0 +1,141 @@
+## by Oleh Mamont (C) 2025
+## free for use and modification
+##
+## this is example of homeassistant configuration.yaml entries,
+## for two batteries
+##
+## add thats to YOUR configuration.yaml
+##
+## RITAR BAT-5KWH-51.2V Integration
+## over RESTful API
+#
+#
+rest:
+#
+#
+## ritar battery 1 SOC
+  - resource: http://192.168.5.3:50501/api/ritar-bat-1.xml
+    sensor:
+      - name: "Ritar 1 voltage"
+        value_template: "{{ value_json.response.b1volt | multiply(0.01) | round(2) }}"
+        unit_of_measurement: "V"
+      - name: "Ritar 1 SOC"
+        value_template: "{{ value_json.response.b1soc | multiply(0.1) | round(1) }}"
+        unit_of_measurement: "%"
+      - name: "Ritar 1 Cycle"
+        value_template: "{{ value_json.response.b1cycl }}"
+# ritar battery 1 cells        
+      - name: "Ritar 1 Cell 1"
+        value_template: "{{ value_json.response.b1c1 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 1 Cell 2"
+        value_template: "{{ value_json.response.b1c2 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 1 Cell 3"
+        value_template: "{{ value_json.response.b1c3 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 1 Cell 4"
+        value_template: "{{ value_json.response.b1c4 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 1 Cell 5"
+        value_template: "{{ value_json.response.b1c5 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 1 Cell 6"
+        value_template: "{{ value_json.response.b1c6 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 1 Cell 7"
+        value_template: "{{ value_json.response.b1c7 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 1 Cell 8"
+        value_template: "{{ value_json.response.b1c8 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 1 Cell 9"
+        value_template: "{{ value_json.response.b1c9 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 1 Cell 10"
+        value_template: "{{ value_json.response.b1c10 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 1 Cell 11"
+        value_template: "{{ value_json.response.b1c11 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 1 Cell 12"
+        value_template: "{{ value_json.response.b1c12 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 1 Cell 13"
+        value_template: "{{ value_json.response.b1c13 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 1 Cell 14"
+        value_template: "{{ value_json.response.b1c14 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 1 Cell 15"
+        value_template: "{{ value_json.response.b1c15 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 1 Cell 16"
+        value_template: "{{ value_json.response.b1c16 }}"
+        unit_of_measurement: "mV"
+    scan_interval: 3
+##
+## for second battery, if you have :
+##
+## ritar battery 2 SOC
+  - resource: http://192.168.5.3:50501/api/ritar-bat-2.xml
+    sensor:
+      - name: "Ritar 2 voltage"
+        value_template: "{{ value_json.response.b2volt | multiply(0.01) | round(2) }}"
+        unit_of_measurement: "V"
+      - name: "Ritar 2 SOC"
+        value_template: "{{ value_json.response.b2soc | multiply(0.1) | round(1) }}"
+        unit_of_measurement: "%"
+      - name: "Ritar 2 Cycle"
+        value_template: "{{ value_json.response.b2cycl }}"
+# ritar battery 2 cells
+      - name: "Ritar 2 Cell 1"
+        value_template: "{{ value_json.response.b2c1 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 2 Cell 2"
+        value_template: "{{ value_json.response.b2c2 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 2 Cell 3"
+        value_template: "{{ value_json.response.b2c3 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 2 Cell 4"
+        value_template: "{{ value_json.response.b2c4 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 2 Cell 5"
+        value_template: "{{ value_json.response.b2c5 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 2 Cell 6"
+        value_template: "{{ value_json.response.b2c6 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 2 Cell 7"
+        value_template: "{{ value_json.response.b2c7 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 2 Cell 8"
+        value_template: "{{ value_json.response.b2c8 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 2 Cell 9"
+        value_template: "{{ value_json.response.b2c9 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 2 Cell 10"
+        value_template: "{{ value_json.response.b2c10 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 2 Cell 11"
+        value_template: "{{ value_json.response.b2c11 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 2 Cell 12"
+        value_template: "{{ value_json.response.b2c12 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 2 Cell 13"
+        value_template: "{{ value_json.response.b2c13 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 2 Cell 14"
+        value_template: "{{ value_json.response.b2c14 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 2 Cell 15"
+        value_template: "{{ value_json.response.b2c15 }}"
+        unit_of_measurement: "mV"
+      - name: "Ritar 2 Cell 16"
+        value_template: "{{ value_json.response.b2c16 }}"
+        unit_of_measurement: "mV"
+    scan_interval: 3
+    
