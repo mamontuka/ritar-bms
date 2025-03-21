@@ -13,7 +13,7 @@ can be accessed over http://192.168.5.3:50501/ </br>
 when you will connect to this web service - you will see short manual and examples, what you can use for <br>
 connect batteries to your homeassitant
 
-in file run.sh realized hack for suspend polling batteries with ritar-bms service, when inverter what have 192.168.5.2 example IP address not online, for pervent broke entities in homeassistant by HA recorder service, what can get wrong values over API during maintenance with whole system cold restart
+in file run.sh realized hack for suspend polling batteries with ritar-bms service, when inverter what have 192.168.5.2 example IP address not online, for prevent broke entities in homeassistant by HA recorder service, what can get wrong values over API during maintenance with whole system cold restart
 
 Im working now with comfortable web-based configurator - will be in future releases, and alternative native HA intergration container, as parallel instalation variant, instead standalone crossplatform what we have atm.
 
