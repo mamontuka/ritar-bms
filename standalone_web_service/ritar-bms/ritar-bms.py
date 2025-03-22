@@ -81,8 +81,17 @@ bat_2_cells_voltage = s.recv(BUFFER_SIZE)
 # close stream to rs485 device
 s.close()
 
+###################################
+######## static variables #########
+###################################
+
+## need for check cells response
 cell_min_limit=2450
 cell_max_limit=4750
+## need for check battery voltage response
+volt_min_limit=4000
+volt_max_limit=6000
+
 
 ###################################
 ########## battery 1 SOC ##########
@@ -228,7 +237,7 @@ bat_2_cell_16_dec = int(bat_2_cell_16_hex, 16)
 ######## API output ###############
 ###################################
 
-if cell_min_limit <= bat_1_cell_1_dec and bat_1_cell_2_dec <= cell_max_limit:
+if volt_min_limit <= bat_1_voltage_dec <= volt_max_limit and cell_min_limit <= bat_1_cell_1_dec and bat_1_cell_2_dec <= cell_max_limit:
 
 # data array to save in API file
      ritar_bms1 = {
@@ -275,7 +284,7 @@ else:
 time.sleep (1)
 
 
-if cell_min_limit <= bat_2_cell_1_dec and bat_2_cell_2_dec <= cell_max_limit:
+if volt_min_limit <= bat_2_voltage_dec <= volt_max_limit and cell_min_limit <= bat_2_cell_1_dec and bat_2_cell_2_dec <= cell_max_limit:
 
 # data array to save in API file
      ritar_bms2 = {
